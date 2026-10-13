@@ -1,0 +1,20 @@
+[Unit]
+Description=NapCat QQ Bot (OneBot v11 protocol side, xvfb)
+After=network-online.target time-sync.target
+Wants=network-online.target time-sync.target
+
+[Service]
+Type=simple
+User=root
+Environment=HOME=/root
+WorkingDirectory=@NAPCAT_DIR@
+# 等系统/网络 settle。实测该延迟并非必需（卡死是随机性的），真正的兜底是看门狗。
+ExecStartPre=/bin/sleep 10
+ExecStart=/usr/bin/xvfb-run -a @QQ_EXE@ --no-sandbox -q @QQ_ACCOUNT@
+Restart=always
+RestartSec=10
+KillMode=control-group
+TimeoutStopSec=25
+
+[Install]
+WantedBy=multi-user.target

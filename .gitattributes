@@ -1,0 +1,7 @@
+# 保证 shell 脚本与配置文件在 Windows 检出时也保持 LF，
+# 避免 CRLF 行尾导致 Linux 服务器上脚本报错（见 README 坑 4）
+*.sh text eol=lf
+*.service text eol=lf
+*.timer text eol=lf
+*.json text eol=lf
+*.md text eol=lf

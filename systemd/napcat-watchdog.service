@@ -1,0 +1,6 @@
+[Unit]
+Description=NapCat health watchdog (detect fake-alive state)
+
+[Service]
+Type=oneshot
+ExecStart=@TOOLS_DIR@/napcat-watchdog.sh

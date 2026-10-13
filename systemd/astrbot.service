@@ -1,0 +1,16 @@
+[Unit]
+Description=AstrBot AI Chat Bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=@ASTRBOT_DIR@
+Environment=PATH=/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+ExecStart=/root/.local/bin/astrbot run
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

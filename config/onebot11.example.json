@@ -1,0 +1,35 @@
+{
+  "_说明": "NapCat OneBot11 反向 WebSocket 配置模板。放到 NapCat 运行目录的 config/onebot11_<QQ号>.json，改完必须 systemctl restart napcat（NapCat 不会热重载）。",
+  "_字段依据": "字段名与默认值取自 NapCat.Shell 4.18.38 源码中的 websocket-client schema。",
+  "network": {
+    "httpServers": [],
+    "httpSseServers": [],
+    "httpClients": [],
+    "websocketServers": [],
+    "websocketClients": [
+      {
+        "name": "AstrBot",
+        "enable": true,
+        "url": "ws://127.0.0.1:6199/ws",
+        "messagePostFormat": "array",
+        "reportSelfMessage": false,
+        "reconnectInterval": 5000,
+        "token": "",
+        "debug": false,
+        "heartInterval": 30000,
+        "verifyCertificate": true
+      }
+    ],
+    "plugins": []
+  },
+  "musicSignUrl": "",
+  "enableLocalFile2Url": false,
+  "parseMultMsg": false,
+  "imageDownloadProxy": "",
+  "timeout": {
+    "baseTimeout": 10000,
+    "uploadSpeedKBps": 256,
+    "downloadSpeedKBps": 256,
+    "maxTimeout": 1800000
+  }
+}
